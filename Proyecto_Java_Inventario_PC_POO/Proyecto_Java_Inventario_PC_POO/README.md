@@ -4,9 +4,13 @@ Trabajo Práctico Integrador — Programación Orientada a Objetos (Java + SQLit
 Requisitos Cumplidos
 
 Dos niveles de herencia con clases abstractas y concretas:
+
 Nivel 0 (Abstracta): ProductoInventario
+
 Nivel 1 (Abstractas): EquipoComputo y ComponenteHardware
+
 Nivel 2 (Concretas): PcEscritorio, Notebook, Microprocesador, ModuloMemoriaRam, DiscoAlmacenamiento
+
 Interfaces y Polimorfismo: Inventariable, Diagnosticable, IRepositorioCRUD<T>
 Sobrecarga de métodos (Overloading): tres variantes de registrarRevision(...) y dos variantes de calcularValorActual(...) en ProductoInventario.
 Composición y Agregación:
