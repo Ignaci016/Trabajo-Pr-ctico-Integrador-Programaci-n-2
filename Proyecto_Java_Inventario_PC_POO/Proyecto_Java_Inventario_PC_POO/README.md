@@ -1,3 +1,3 @@
-Ejecución con Maven
+Ejecución con Maven:
 
 mvn clean compile exec:java
