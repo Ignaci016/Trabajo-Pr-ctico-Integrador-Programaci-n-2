@@ -2,6 +2,7 @@ Sistema de Gestión de Inventario de PCs, Componentes y Revisiones Técnicas
 Trabajo Práctico Integrador — Programación Orientada a Objetos (Java + SQLite)
 
 Requisitos Cumplidos
+
 Dos niveles de herencia con clases abstractas y concretas:
 Nivel 0 (Abstracta): ProductoInventario
 Nivel 1 (Abstractas): EquipoComputo y ComponenteHardware
@@ -14,5 +15,6 @@ Agregación: EquipoComputo ◇── ComponenteHardware (componentes independien
 Excepciones personalizadas: EntradaInvalidaException, PosicionListaInvalidaException, PersistenciaException.
 Recorridos de listas: for clásico y for-each, while e Iterator<T> para remoción y filtrado seguro.
 Persistencia SQLite CRUD + Búsquedas SQL: implementada con sqlite-jdbc, PreparedStatement, Patrón Singleton (ConexionSQLite), Patrón DAO (ProductoDAO) y Patrón Factory Method (ProductoFactory).
+
 Ejecución con Maven
 mvn clean compile exec:java
