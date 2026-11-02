@@ -1,0 +1,50 @@
+-- Esquema Relacional SQLite - TP Integrador POO
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS productos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tipo_categoria TEXT NOT NULL,
+    codigo_serie TEXT NOT NULL UNIQUE,
+    marca TEXT NOT NULL,
+    modelo TEXT NOT NULL,
+    precio_base REAL NOT NULL,
+    estado_operativo TEXT NOT NULL,
+    procesador TEXT,
+    memoria_ram_gb INTEGER DEFAULT 0,
+    almacenamiento_gb INTEGER DEFAULT 0,
+    watts_fuente INTEGER DEFAULT 0,
+    factor_forma TEXT,
+    tiene_gpu_dedicada INTEGER DEFAULT 0,
+    pulgadas_pantalla REAL DEFAULT 0.0,
+    capacidad_bateria_wh INTEGER DEFAULT 0,
+    ciclos_carga INTEGER DEFAULT 0,
+    tipo_interfaz TEXT,
+    consumo_watts INTEGER DEFAULT 0,
+    garantia_meses INTEGER DEFAULT 0,
+    cantidad_nucleos INTEGER DEFAULT 0,
+    frecuencia_ghz REAL DEFAULT 0.0,
+    socket TEXT,
+    capacidad_comp_gb INTEGER DEFAULT 0,
+    tecnologia_mem_disco TEXT,
+    frecuencia_mhz INTEGER DEFAULT 0,
+    salud_smart INTEGER DEFAULT 100
+);
+
+CREATE TABLE IF NOT EXISTS revisiones_tecnicas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    producto_id INTEGER NOT NULL,
+    fecha TEXT NOT NULL,
+    tecnico_responsable TEXT NOT NULL,
+    aclaracion_detallada TEXT NOT NULL,
+    aprobado INTEGER NOT NULL,
+    costo_servicio REAL NOT NULL DEFAULT 0.0,
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS equipo_componentes (
+    equipo_id INTEGER NOT NULL,
+    componente_id INTEGER NOT NULL,
+    PRIMARY KEY (equipo_id, componente_id),
+    FOREIGN KEY (equipo_id) REFERENCES productos(id) ON DELETE CASCADE,
+    FOREIGN KEY (componente_id) REFERENCES productos(id) ON DELETE CASCADE
+);
